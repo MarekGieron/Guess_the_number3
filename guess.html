@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Odwrócona gra w zgadywanie liczb</title>
+  </head>
+  <body>
+    <h1>Odwrócona gra w zgadywanie liczb</h1>
+    {% if number %}
+    <p>Czy twoja liczba to {{ number }}?</p>
+    <form method="post">
+      <input type="hidden" name="min_value" value="{{ min_value }}">
+      <input type="hidden" name="max_value" value="{{ max_value }}">
+      <input type="hidden" name="number" value="{{ number }}">
+      <button type="submit" name="too_small">Za mało</button>
+      <button type="submit" name="too_big">Za dużo</button>
+      <button type="submit" name="you_win">Odgadł(e)ś</button>
+    </form>
+    {% else %}
+    <p>Wybierz liczbę z zakresu od {{ min_value }} do {{ max_value }}</p>
+    <form method="post">
+      <input type="hidden" name="min_value" value="{{ min_value }}">
+      <input type="hidden" name="max_value" value="{{ max_value }}">
+      <button type="submit" name="too_small">Za mało</button>
+      <button type="submit" name="too_big">Za dużo</button>
+      <button type="submit" name="you_win">Odgadnij</button>
+    </form>
+    {% endif %}
+  </body>
+</html>
+
